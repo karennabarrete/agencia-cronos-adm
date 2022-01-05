@@ -68,6 +68,37 @@
               </tr>
             </tbody>
           </table>
+
+          <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Novo Curso</h2>
+                </header>
+                 
+                <form id="form" class="modal-form">
+                    <input type="text" id="novo_img" data-index="new" required class="modal-field" placeholder="Imagem">
+                    <input type="text" id="novo_titulo" class="modal-field" placeholder="Título" required>
+                    <input type="number" id="novo_id" class="modal-field" placeholder="ID" required>
+                    <input type="text" id="novo_professor" class="modal-field" placeholder="Professor" required>
+                    <div id="modal-textarea">
+                        <textarea name="" id="novo_descricao" cols="30" rows="8" placeholder="Descrição do Curso" required></textarea>
+                        <textarea name="" id="novo_aulas" cols="30" rows="8" placeholder="Lista de aulas" required></textarea>
+                    </div>
+                                      
+                </form>
+                <footer class="modal-footer">
+                    <button id="salvar">Salvar</button>
+                    <button id="salvar-edicao">Editar</button>
+                    <button id="cancelar">Cancelar</button>
+                </footer>
+            </div>
+
+
+
+
+
+
+
         </div>
       </div>
     </div>
@@ -90,6 +121,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
+  <script src="./js/acoes.js"></script>
 </body>
 
 </html>
