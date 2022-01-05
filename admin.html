@@ -28,7 +28,7 @@
 
 
           <h3>Serviços</h3>
-          <button class="btn btn-primary">Adicionar novo</button>
+          <button class="btn btn-primary" id="cadastro_curso">Cadastrar Curso</button>
           <table class="table my-5">
             <thead>
               <tr>
@@ -77,13 +77,11 @@
                  
                 <form id="form" class="modal-form">
                     <input type="text" id="novo_img" data-index="new" required class="modal-field" placeholder="Imagem">
-                    <input type="text" id="novo_titulo" class="modal-field" placeholder="Título" required>
+                    <input type="text" id="novo_nome" class="modal-field" placeholder="Nome" required>
                     <input type="number" id="novo_id" class="modal-field" placeholder="ID" required>
-                    <input type="text" id="novo_professor" class="modal-field" placeholder="Professor" required>
-                    <div id="modal-textarea">
-                        <textarea name="" id="novo_descricao" cols="30" rows="8" placeholder="Descrição do Curso" required></textarea>
-                        <textarea name="" id="novo_aulas" cols="30" rows="8" placeholder="Lista de aulas" required></textarea>
-                    </div>
+                    <input type="text" id="novo_descricao" class="modal-field" placeholder="Descricao" required>
+                    
+                  
                                       
                 </form>
                 <footer class="modal-footer">
