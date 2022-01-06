@@ -28,7 +28,29 @@
 
 
           <h3>Serviços</h3>
-          <button class="btn btn-primary" id="cadastro_curso">Cadastrar Curso</button>
+
+          <button class="btn btn-primary" id="btnAdicionar">Adicionar novo</button>
+
+          <div id="modalAdicionar" class="modal">
+            <div class="modal-content">
+              <form class="formCurso">
+                <h3>Novo Curso</h3>
+
+                <label for="NomeCurso">Nome do Curso:</label><br>
+                <input type="text" name="NomeCurso" id="nome-curso" /><br>
+
+                <label for="ImagemCurso">Imagem do Curso (url):</label><br>
+                <input type="text" name="ImagemCurso" id="imagem-curso"/><br>
+
+                <label for="DescricaoCurso">Descrição do Curso:</label><br>
+                <input type="text" name="DescricaoCurso" id="descricao-curso"/><br><br>
+
+                <button id="botao-cancelar" class="btn btn-danger m-1">CANCELAR</button>
+                <button id="botao-confirmar" class="btn btn-primary" id="btnAdicionar">CONFIRMAR</button>
+              </form>
+            </div>
+          </div>
+
           <table class="table my-5">
             <thead>
               <tr>
@@ -38,65 +60,32 @@
                 <td>Ações</td>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Desenvolvimento Web</td>
-                <td><img src="imagens/ilustra-web.png" class="img-fluid" /></td>
-                <td>Consequatur debitis ipsa numquam illum placeat quod deleniti.</td>
-                <td>
-                  <button class="btn btn-secondary m-1">editar</button>
-                  <button class="btn btn-danger m-1">excluir</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Marketing Digital</td>
-                <td><img src="imagens/ilustra-marketing.png" class="img-fluid" /></td>
-                <td>Consequatur debitis ipsa numquam illum placeat quod deleniti.</td>
-                <td>
-                  <button class="btn btn-secondary m-1">editar</button>
-                  <button class="btn btn-danger m-1">excluir</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Consultoria UX</td>
-                <td><img src="imagens/ilustra-ux.png" class="img-fluid" /></td>
-                <td>Consequatur debitis ipsa numquam illum placeat quod deleniti.</td>
-                <td>
-                  <button class="btn btn-secondary m-1">editar</button>
-                  <button class="btn btn-danger m-1">excluir</button>
-                </td>
-              </tr>
+            <tbody id="painel-cursos">
             </tbody>
           </table>
-
-          <div class="modal" id="modal">
+        
+          <div id="modalEditar" class="modal">
             <div class="modal-content">
-                <header class="modal-header">
-                    <h2>Novo Curso</h2>
-                </header>
-                 
-                <form id="form" class="modal-form">
-                    <input type="text" id="novo_img" data-index="new" required class="modal-field" placeholder="Imagem">
-                    <input type="text" id="novo_nome" class="modal-field" placeholder="Nome" required>
-                    <input type="number" id="novo_id" class="modal-field" placeholder="ID" required>
-                    <input type="text" id="novo_descricao" class="modal-field" placeholder="Descricao" required>
-                    
-                  
-                                      
-                </form>
-                <footer class="modal-footer">
-                    <button id="salvar">Salvar</button>
-                    <button id="salvar-edicao">Editar</button>
-                    <button id="cancelar">Cancelar</button>
-                </footer>
+              <form class="formCurso">
+                <h3>Editar Curso</h3>
+
+                <input style="display: none" type="text" id="id-curso-edicao">
+
+                <label for="NomeCurso">Nome do Curso:</label><br>
+                <input type="text" name="NomeCurso" id="nome-curso-edicao"/><br>
+
+                <label for="ImagemCurso">Imagem do Curso (url):</label><br>
+                <input type="text" name="ImagemCurso" id="imagem-curso-edicao"/><br>
+
+                <label for="DescricaoCurso">Descrição do Curso:</label><br>
+                <input type="text" name="DescricaoCurso" id="descricao-curso-edicao"/><br><br>
+
+                <button id="botao-cancelar-edicao" class="btn btn-danger m-1">CANCELAR</button>
+                <button id="botao-confirmar-edicao" class="btn btn-primary" id="btnAdicionar">CONFIRMAR</button>
+              </form>
             </div>
-
-
-
-
-
-
-
+          </div>
+        
         </div>
       </div>
     </div>
@@ -110,6 +99,9 @@
     </div>
   </footer>
 
+  
+  <script src="./js/acoes.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -119,7 +111,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
-  <script src="./js/acoes.js"></script>
 </body>
 
 </html>

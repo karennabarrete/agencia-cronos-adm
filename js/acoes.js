@@ -1,81 +1,234 @@
-let btnCadastroCurso = document.querySelector("#cadastro_curso");
-let btnSalvarCurso = document.querySelector("#salvar");
-let btnSalvarEdicaoCurso = document.querySelector("#salvar-edicao");
-let btnCancelarCadastroCurso = document.querySelector("#cancelar");
+//VARIAVEL
 
-var dadosCursos = [
-    {"imagem": "novoCursoImagem",
-    "nome": "novoCursoNome",
-    "id": "novoCursoId",
-    "descricao" : "novoCursoDescricao",
-    
-    }
+let cursos = [{
+    nome: "Desenvolvimento Web",
+    imagem: "imagens/ilustra-web.png",
+    descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti.",
+    id: "1"
+},
+{
+    nome: "Marketing Digital",
+    imagem: "imagens/ilustra-marketing.png",
+    descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti.",
+    id: "2"
+
+},
+{
+    nome: "Consultoria UX",
+    imagem: "imagens/ilustra-ux.png",
+    descricao: "Consequatur debitis ipsa numquam illum placeat quod deleniti.",
+    id: "3"
+
+
+}
+
 ]
-//funções//
 
 const cadastrarCurso = () => {
-    btnSalvarCurso.style.display = "initial";
-    btnSalvarEdicaoCurso.style.display ="none";
-    document.querySelector(".modal").classList.add("active");
+    
+    let htmlCursos = "";
+    
+    for (let i = 0; i < cursos.length; i++) {
+        htmlCursos += `
+            <tr data-index="${cursos[i].id}">
+                <td>${cursos[i].nome}</td>
+                <td><img src=${cursos[i].imagem} class="img-fluid" /></td>
+                <td>${cursos[i].descricao}</td>
+                <td>
+                    <button data-action="editar" class="btn btn-secondary m-1">editar</button>
+                    <button data-action="excluir" class="btn btn-danger m-1">excluir</button>
+                </td>
+            </tr>
+        `    
+    }
+    
+    let painelCursos = document.querySelector("#painel-cursos")
+
+   
+    painelCursos.innerHTML = htmlCursos;
 }
 
+cadastrarCurso ();
+
+let botaoAdicionar = document.getElementById("btnAdicionar");
+
+let modalAdicionar = document.getElementById("modalAdicionar");
 
 
+function apareceModalAdicionar() {
+    modalAdicionar.style.display = "block";
 
-const criarCurso = () => {  
-  
-    let novoCursoImagem = document.getElementById("novo_img").value;
-    let novoCursoNome = document.getElementById("novo_nome").value;
-    let novoCursoId = document.getElementById("novo_id").value;
-    let novoCursoDescricao = document.getElementById("novo_descricao").value;
+}
+
+let inputNome = document.getElementById("nome-curso");
+
+let inputImagem = document.getElementById("imagem-curso");
+
+let inputDescricao = document.getElementById("descricao-curso");
+
+let botaoCancelarAdicao = document.getElementById("botao-cancelar");
+
+let botaoConfirmarAdicao = document.getElementById("botao-confirmar");
+
+function cancelarAdicao(e) {
+    e.preventDefault();
+
+    modalAdicionar.style.display = "none";
+
+    limpaInputAdicao();
+}
+
+function confirmarAdicao(e) {
    
-    
-    if(novoCursoId == ""){
-        window.alert("Digite um ID válido!")
-        return false;
-    }    
+    e.preventDefault();
 
-    for(let i = 0; i < dadosCursos.length; i++) {        
-        if (dadosCursos[i]["id"] == novoCursoId){                       
-            return window.alert("Esse ID de curso já existe!");
-        }        
+   
+    let idDoCurso = cursos.length + 1;
+    
+    let valorDoInputNome = inputNome.value;
+    
+    let valorDoInputImagem = inputImagem.value;
+    
+    let valorDoInputDescricao = inputDescricao.value;
+
+    
+    cursos.push({
+        id: idDoCurso,
+        nome: valorDoInputNome,
+        imagem: valorDoInputImagem,
+        descricao: valorDoInputDescricao
+    })
+
+    
+    modalAdicionar.style.display = "none";
+    
+    
+    cadastrarCurso();
+
+    
+    limpaInputAdicao();
+}
+
+function limpaInputAdicao() {
+    inputNome.value = "";
+    inputImagem.value = "";
+    inputDescricao.value = "";
+}
+
+function cancelarEdicao(e) {
+    e.preventDefault();
+    modalEditar.style.display = "none";
+}
+
+function confirmarEdicao(e) {
+    
+    e.preventDefault();
+
+    let id = document.getElementById("id-curso-edicao").value;
+
+    for (let i = 0; i < cursos.length; i++) {
+        if (cursos[i].id == id){
+            
+            cursos[i].nome = inputNomeEdicao.value;
+            cursos[i].imagem = inputImagemEdicao.value;
+            cursos[i].descricao = inputDescricaoEdicao.value;
+        }
     }
 
-    dadosCursos.push({
-        "imagem": novoCursoImagem,
-        "nome": novoCursoNome,
-        "id": novoCursoId,
-        "descricao" : novoCursoDescricao,
-        });
-
-    const novoCurso = document.createElement('div')
-    novoCurso.innerHTML = `
-        <img src="${novoCursoImagem = '../imagens/teste.png'}" class="curso_imagem" alt="imagem curso">                
-        <h2 class="curso_nome">${novoCursoNome}</h2>
-        <span class="curso_id">ID: ${novoCursoId}</span>
-        <p class="curso_descricao">${novoCursoDescricao}</p>
-        <div class="curso_botoes_editar_deletar">
-            <button class="curso_botao_editar" onclick="abrirEdicaoCurso(${novoCursoId})">Editar</button>
-            <button class="curso_botao_deletar" onclick="deletarCurso(${novoCursoId})">Deletar</button>
-        </div>`;
-
-    novoCurso.classList.add(`container_curso`);
-    novoCurso.setAttribute('id', `${novoCursoId}`);
-    document.querySelector("#container").appendChild(novoCurso);    
-    document.querySelector("#form").reset();
+    
+    modalEditar.style.display = "none";
+    
+    
+    cadastrarCurso();
 }
 
 
+let modalEditar = document.getElementById("modalEditar");
 
 
+function apareceModalEditar(id) {
+    modalEditar.style.display = "block";
+    
+    for (let i = 0; i < cursos.length; i++) {
+        if (cursos[i].id == id){
+            
+            inputId.value = cursos[i].id;
+            inputNomeEdicao.value = cursos[i].nome;
+            inputImagemEdicao.value = cursos[i].imagem;
+            inputDescricaoEdicao.value = cursos[i].descricao;
+        }
+
+    }
+}
 
 
+let inputId = document.getElementById("id-curso-edicao");
+
+let inputNomeEdicao = document.getElementById("nome-curso-edicao");
+
+let inputImagemEdicao = document.getElementById("imagem-curso-edicao");
+
+let inputDescricaoEdicao = document.getElementById("descricao-curso-edicao");
 
 
+let botaoCancelarEdicao = document.getElementById("botao-cancelar-edicao");
+
+let botaoConfirmarEdicao = document.getElementById("botao-confirmar-edicao");
 
 
+let botoesEditarExcluir = document.querySelector("#painel-cursos");
 
-btnCadastroCurso.addEventListener('click', cadastrarCurso);
-btnSalvarCurso.addEventListener('click', criarCurso);
-btnCancelarCadastroCurso.addEventListener('click', cancelarCriacaoCurso);
-btnSalvarEdicaoCurso.addEventListener('click', atualizarCurso);
+function editarCurso(id) {
+    apareceModalEditar(id);
+}
+
+function excluirCurso(id) {
+    for (let i = 0; i < cursos.length; i++) {
+        
+        if (cursos[i].id == id){
+            cursos.splice(i, 1);
+            cadastrarCurso();
+        }
+    };
+}
+
+function editarExcluir(e) {
+    if (e.target.type == "submit") {
+        let id = e.target.parentNode.parentNode.dataset.index;
+        
+        if (e.target.dataset.action == "editar") {
+            editarCurso(id);
+
+        } else if (e.target.dataset.action == "excluir") {
+            excluirCurso(id);
+        }
+
+    }   
+}
+// EVENT LISTENERS
+
+botaoAdicionar.addEventListener("click", apareceModalAdicionar);
+ 
+botaoCancelarAdicao.addEventListener("click", cancelarAdicao);
+
+botaoConfirmarAdicao.addEventListener("click", confirmarAdicao);
+
+
+window.addEventListener("click", function (e) {
+    if (e.target == modalAdicionar) {
+        modalAdicionar.style.display = "none";
+        limpaInputAdicao();
+    }
+    if (e.target == modalEditar) {
+        modalEditar.style.display = "none";
+    }
+})
+
+
+botaoCancelarEdicao.addEventListener("click", cancelarEdicao);
+
+botaoConfirmarEdicao.addEventListener("click", confirmarEdicao);
+
+botoesEditarExcluir.addEventListener("click", editarExcluir)
+
+
