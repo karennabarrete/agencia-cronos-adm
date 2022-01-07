@@ -1,9 +1,12 @@
 <h4 align="center"> 
-	🚧  Status: 🚀 Em Andamento...  🚧
+	🚧  Status: 🚀 Concluido  🚧
 </h4> 
 <h1 align="center">Projeto Gama Academy - Agencia Cronos</h1>
 ## Descrição do Projeto
 <p align="center">O grupo foi contratado pela Agência Cronos para o desenvolvimento do site institucional, o foco é no gerenciamente de serviços.</p>
+
+🚀 Começo
+O Projeto consistiu em poder alterar o sistema institucional para criar, editar e deletar os serviços da lista.
 
 
 ### 🛠 Tecnologias Utilizadas
@@ -13,7 +16,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
 - [CSS3](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
 - [Node.js](https://nodejs.org/en/)
-- [Javascripto](https://www.w3schools.com/js/)
+- [Javascript](https://www.w3schools.com/js/)
 
 ### Autores
 ---
