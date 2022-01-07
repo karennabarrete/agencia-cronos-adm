@@ -30,7 +30,7 @@ Feito com ❤️ 👋🏽 Entre em contato!
 <a href="https://www.linkedin.com/in/kevin-gomes-7b570220a/">
  <img style="border-radius: 50%;" src="https://media-exp1.licdn.com/dms/image/C4E03AQE8HdmsEkfj8g/profile-displayphoto-shrink_400_400/0/1617200574761?e=1646870400&v=beta&t=bXsZ2KdpUjv6AafBdESTIkiD_BD03biUlDN34Q8xn8E" width="100px;" alt=""/>
  <br />
- <sub><b>Kevin Borges</b></sub></a> <a href="https://www.linkedin.com/in/kevin-gomes-7b570220a/" title="LinkeDin">🚀</a>
+ <sub><b>Kevin Gomes</b></sub></a> <a href="https://www.linkedin.com/in/kevin-gomes-7b570220a/" title="LinkeDin">🚀</a>
  
  
 Feito com ❤️ 👋🏽 Entre em contato! 
