@@ -5,8 +5,8 @@
 ## Descrição do Projeto
 <p align="center">O grupo foi contratado pela Agência Cronos para o desenvolvimento do site institucional, o foco é no gerenciamente de serviços.</p>
 
-🚀 Start
-O Projeto consistiu em poder alterar o sistema institucional para criar, editar e deletar os serviços da lista.
+###🚀 Start
+<p>O Projeto consistiu em poder alterar o sistema institucional para criar, editar e deletar os serviços da lista.</p>
 
 
 ### 🛠 Tecnologias Utilizadas
